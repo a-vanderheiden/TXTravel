@@ -3,3 +3,4 @@
 
 data/kmz/*
 .ipynb_checkpoints
+__pycache__
