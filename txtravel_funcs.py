@@ -36,6 +36,8 @@ def check_county_names(counties, county_list):
         print("Check the spelling and capitalization of the names above. Once changes are made to USER_COUNTIES, re-run the notebook.")
         print("The official county names are listed below:")
         [print(f" - {name}") for name in counties["CNTY_NM"].sort_values().values]
+    else:
+        print("All listed county names were found in the shapefile.")
 
 
 def load_routes(kmz_files):
@@ -143,6 +145,9 @@ class CountyProcessor():
         Returns the length in miles
         """
 
+        if not self.added_kmz:
+            return (0, 0)
+        
         proj = self.routes.to_crs(self.tx_utm)
         total_length = proj.length.sum() / 1609 # convert m to miles
 
