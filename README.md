@@ -19,7 +19,8 @@ To download a kmz of a Google Maps route, follow the steps below:
 1. Open the [My Maps](https://www.google.com/maps/d/) page
 2. Click "Create New Map" in the top left corner
 3. On the new map, click the Add Directions button below the Search Field at the top of the page
-4. Name the new layer that appears on the left hand side of the page
+    - this button looks like a fork in the road and is immediately to the left of the ruler
+4. A new layer will appear on the left hand side of the page
 5. Add the start and end points of your route next to "A" and "B"
 6. To export the layer, select the 3 dots to the right of the map name, then select "Export to KML/KMZ"
 7. In the pop-up menu, select your layer instead of "Entire map" in the drop-down
