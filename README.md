@@ -2,7 +2,7 @@
 
 This repo contains a jupyter notebook to figure out how an individual stacks up in the various sub-competitions of the Geography Department Summer Travel competition. 
 
-The subcompetions can be assessed based on either a list of county names or `.kmz` file(s) of travel routes.
+The subcompetions can be assessed on either a list of county names or `.kmz` file(s) of travel routes.
 If kmz files are provided, the notebook will derive the counties visited via intersection.
 
 Alternatively, if you do not wish to use kmz files of your travel routes, you can simply list the county names you visited at the top of the notebook. 
@@ -10,7 +10,7 @@ These names will be used to query a TX County shapefile stored in the `data` fol
 
 The notebook will then assess each sub-competion from the list of counties porvided (either from the kmz intersections or those listed by you). 
 
-Interactive maps will show you what the notebook is calculating and your results for each of the sub-competions will be summarized at the end.  
+Your results for each of the sub-competions will be summarized at the end and an interactive map will visualize these results.   
 
 ## Downloading kmz travel routes
 You can generate and download kmz files of Google Maps driving routes from the [My Maps](https://www.google.com/maps/d/) website created by Google. 
