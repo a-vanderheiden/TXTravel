@@ -24,8 +24,7 @@ To download a kmz of a Google Maps route, follow the steps below:
 6. To export the layer, select the 3 dots to the right of the map name, then select "Export to KML/KMZ"
 7. In the pop-up menu, select your layer instead of "Entire map" in the drop-down
 8. Click "Download"
-9. Move this downloaded kmz to the `data/kmz` folder in this repo
-    - you may need to create the `kmz` folder in the `data` folder
+9. Move this downloaded kmz to the `data` folder in this repo
 10. Repeat steps 3-10 for each route you want to add
 
 ## Running the notebook

@@ -5,18 +5,16 @@ import pandas as pd
 from shapely.geometry import LineString
 from itertools import combinations
 
-def check_kmz():
-    """Check the kmz folder for routes. Provide feedback if none are found"""
-    # Check for kmz files
-    kmz_dir = Path("data/kmz")
-    kmz_files = []
+def check_kmz(data_dir="data"):
+    """Check the data folder for kmz routes. Provide feedback if none are found"""
 
-    if kmz_dir.is_dir():
-        kmz_files = list(kmz_dir.glob("*.kmz"))
+    # List all kmz in the data folder
+    data_path = Path(data_dir)
+    kmz_files = list(data_path.glob("*.kmz"))
 
-    if kmz_files:
+    if len(kmz_files)>0:
         print("KMZ files found")
-        [print(f" - {kmz.name}") for kmz in kmz_dir.iterdir()]
+        [print(f" - {kmz.name}") for kmz in kmz_files]
     else:
         print("No kmz files provided or they are in the wrong folder.")
     
@@ -37,7 +35,7 @@ def check_county_names(counties, county_list):
         print("The official county names are listed below:")
         [print(f" - {name}") for name in counties["CNTY_NM"].sort_values().values]
     else:
-        print("All listed county names were found in the shapefile.")
+        print("No incorrect county names entered.")
 
 
 def load_routes(kmz_files):
@@ -72,15 +70,11 @@ class CountyProcessor():
     This way, the user can validate and feel more confident in the metrics generated
     """
     def __init__(self, counties: GeoDataFrame, routes: GeoDataFrame, 
-                 years_of_res: str, vehicle_age: str, added_kmz: str, tx_utm):
+                 years_of_res: int, vehicle_age: int, tx_utm):
         self.counties = counties
         self.routes = routes
         self.years_of_res = int(years_of_res)
         self.vehicle_age = int(vehicle_age)
-        if added_kmz == "YES":
-            self.added_kmz = True
-        else:
-            self.added_kmz = False
         self.tx_utm = tx_utm
     
     def counties_per_yr_tx_res(self):
@@ -145,7 +139,7 @@ class CountyProcessor():
         Returns the length in miles
         """
 
-        if not self.added_kmz:
+        if self.routes.empty:
             return (0, 0)
         
         proj = self.routes.to_crs(self.tx_utm)
